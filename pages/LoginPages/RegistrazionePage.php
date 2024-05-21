@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION["statusLogin"])) {
-
-        $_SESSION["statusLogin"] = false;
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,17 +21,17 @@
                 <div class="col-12 my-4">
 
                     <h1>Crea il tuo Utente</h1>
-                    <form action="../php/login/Registrazione.php" method="POST" class="mt-3">
-                        <input type="text" class="inputText" placeholder="Nome" name="nome" required><br><br>
-                        <input type="text" class="inputText" placeholder="Cognome" name="cognome" required><br><br>
-                        <input type="number" class="inputText" placeholder="Età" name="eta" required><br><br>
-                        <input type="text" class="inputText" placeholder="Email" name="email" required><br><br>
-                        <input type="password" class="inputText" placeholder="Passwrod" name="password" required><br><br>
+                    <form action="../../php/LoginPHP/RegistrazioneCode.php" method="POST" class="mt-3">
+                        <input type="text" placeholder="Nome" name="nome" required><br><br>
+                        <input type="text" placeholder="Cognome" name="cognome" required><br><br>
+                        <input type="number" placeholder="Età" name="eta" required><br><br>
+                        <input type="text" placeholder="Email" name="email" required><br><br>
+                        <input type="password" placeholder="Passwrod" name="password" required><br><br>
                     
                         <input type="submit" value="Invia"><br><br>
                     </form>
             
-                    <a href="../index.php"><button type="button" class="btn btn-secondary">Torna al Login</button></a>
+                    <a href="LoginPage.php"><button type="button" class="btn btn-secondary">Torna al Login</button></a>
 
                 </div>
 
@@ -48,6 +40,21 @@
             <div class="row">
             
                 <div class="col-12 mt-5">
+
+                    <?php
+
+                        if($_SESSION["errorReg"] != "") {
+
+                            echo "<h1>Errore</h1>";
+                            echo "<p>" . $_SESSION["errorReg"] . "</p>";
+                        }
+
+                        if($_SESSION["succReg"] != "") {
+
+                            echo "<h1>Successo</h1>";
+                            echo "<p>" . $_SESSION["succReg"] . "</p>";
+                        }
+                    ?>
 
                 </div>
 

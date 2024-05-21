@@ -3,6 +3,9 @@
     session_start();
     include '../script.php';
 
+    unset($_SESSION['flagLoginErrore']);
+    unset($_SESSION['flagLoginSuccesso']);
+
     $email = $_POST["username"];
     $password = $_POST["password"];
 
@@ -14,8 +17,7 @@
     if($result->num_rows == 0) {
 
         $_SESSION["errore"] = "Error Logging User: " . $conn->error;
-        $_SESSION["statusLogin"] = true;
-        header('Location: ../../index.php');
+        header('Location: ../../php/LoginPHP/LoginCode.php');
     } 
     
     else {
@@ -24,16 +26,17 @@
 
         if($password != $row["Password"]) {
 
-            $_SESSION["errore"] = "Error wrong password: " . $conn->error;
-            $_SESSION["statusLogin"] = true;
-            header('Location: ../../index.php');
+            $_SESSION["flagLoginErrore"] = true;
+            $_SESSION["errorLog"] = "Error wrong password: " . $conn->error;
+            header('Location: ../../php/LoginPHP/LoginCode.php');
         } 
         
         else {
 
-            $_SESSION["successo"] = "Login successfully";
+            $_SESSION["flagLoginSuccesso"] = true;
             $_SESSION["username"] = $username;
-            header('Location: ../../pages/home.html');
+            $_SESSION["succLog"] = "Login successfully";
+            header('Location: ../../index.php');
         }
 
     }
