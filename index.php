@@ -1,11 +1,7 @@
 <?php
     session_start();
-    include('php/script.php');
-    
-    if(!isset($_SESSION["statusLogin"])) {
-
-        $_SESSION["statusLogin"] = false;
-    }
+    include('script.php');
+    //unset($_SESSION["loggato"]);
 ?>
 
 <!DOCTYPE html>
@@ -19,16 +15,38 @@
 
     <body>
 
-        <a href="pages/LoginPages/LoginPage.php">pagina Login</a>
+        <!--<a href="LoginPage.html">pagina Login</a>-->
         
         <?php
 
-            $sql = "SELECT * FROM oggetto";   
-            $result = $conn->query($sql);
+
+
+
+            $sql1 = "SELECT Nome, Descrizione FROM oggetto";   
+            $result = $conn->query($sql1);
             
+            $sql2 = "SELECT Foto, ID FROM oggetto";  
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            
+            if ($result2->num_rows > 0) {
+                $row2 = $result2->fetch_assoc();
+                $imgContent = $row2['Foto'];
+            } else {
+                echo "Image not found.";
+            }
+
+
             if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "id: ". $row["id"]. " - Name: ". $row["nome"]. " ". $row["cognome"]. "<br>";
+                while($row1 = $result->fetch_assoc()) {
+                    echo "<div class='card'>";
+                    echo "<img src= " . $imgContent .  "alt='foto' style='width:100%'>";
+                    echo "<div class='container'>";
+                    echo "<h4><b> " . $row1['Nome'] . "</b></h4>";
+                    echo "<p>" . $row1['Descrizione'] . "</p>";
+                    echo "</div>";
+                    echo "</div>";
                 }
 
             }
@@ -39,23 +57,23 @@
            
         ?>
 
-        <a class='btn btn-primary' href='
+        <a class='btn btn-primary' href=' 
         <?php 
-            if($_SESSION["statusLogin"] == true) {
+            if( !empty($_SESSION["loggato"]) ) {
                 ?>
-                php/LoginPHP/ASAS.html
+                https://www.youtube.com/
                 <?php
             }
             else{
                 ?>
-                pages/LoginPages/LoginPage.php
+                LoginCode.php
                 <?php
             }
         ?>
         ' role='button'>Link</a>
-
-        
-
+        <br>
+        <a class='btn btn-primary' href='profilo.php' role='button'>PROFILO PERSONALE</a><br>
+        <a class='btn btn-primary' href='scriptlogout.php' role='button'>LOG OUT</a>
     </body>
 
 </html>
