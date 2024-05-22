@@ -1,29 +1,31 @@
 <?php
-session_start();
-include('script.php');
 
-if( empty($_SESSION["loggato"]) ){
-            
-    header("Location: LoginPage.html");
-}
+    session_start();
+    include('script.php');
 
+    if( empty($_SESSION["loggato"]) ){
+                
+        header("Location: LoginPage.html");
+    }
 
-        $targetDir = "imgs/";
-        $nome = $_POST['Nome'];
-        $descrizione = $_POST['Descrizione'];
-        $categoria = $_POST['Categoria'];
-        $targetFile = $targetDir . basename($_FILES["file"]["name"]);
-        $imageLink = "http://example.com/" . $targetFile;
-        
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+    $targetDir = "imgs/";
+    $nome = $_POST['Nome'];
+    $descrizione = $_POST['Descrizione'];
+    $categoria = $_POST['Categoria'];
+    $targetFile = $targetDir . basename($_FILES["file"]["name"]);
+    $imageLink = "http://example.com/" . $targetFile;
     
-            // Inserisce il link dell'immagine nel database
-            $sql = "INSERT INTO oggetto(Foto) VALUES ('$imageLink')";
-  
-            echo "Immagine salvata con successo.";
-        } else {
-            echo "Si è verificato un errore durante il caricamento del file.";
-        }
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+
+        // Inserisce il link dell'immagine nel database
+        $sql = "INSERT INTO oggetto(Foto) VALUES ('$imageLink')";
+        echo "Immagine salvata con successo.";
+    } 
+    
+    else {
+        echo "Si è verificato un errore durante il caricamento del file.";
+    }
+
         /*
         $imgContent = file_get_contents($image['tmp_name']);
 

@@ -15,12 +15,10 @@
 
     <body>
 
-        <!--<a href="LoginPage.html">pagina Login</a>-->
-        
+        <a class='btn btn-primary' href='profilo.php' role='button'>PROFILO PERSONALE</a><br>
+        <a class='btn btn-primary' href='scriptlogout.php' role='button'>LOG OUT</a>
+
         <?php
-
-
-
 
             $sql1 = "SELECT Nome, Descrizione FROM oggetto";   
             $result = $conn->query($sql1);
@@ -72,8 +70,6 @@
         ?>
         ' role='button'>Link</a>
         <br>
-        <a class='btn btn-primary' href='profilo.php' role='button'>PROFILO PERSONALE</a><br>
-        <a class='btn btn-primary' href='scriptlogout.php' role='button'>LOG OUT</a>
     </body>
 
 </html>

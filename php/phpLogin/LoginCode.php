@@ -15,9 +15,10 @@
     $result = $conn->query($sql);
 
     if ($result == FALSE) {
-        $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
+
+        $_SESSION['messaggio'] = "NON SEI ANCORA REGISTATO!!!";
         header('Location: Messaggio.php');
-      }
+    }
 
     else {
 
@@ -39,7 +40,7 @@
             
             else {
                 
-                $_SESSION["loggato"]="log";
+                $_SESSION["loggato"] = "log";
                 $_SESSION["email"] = $email;
                 $_SESSION["pw"] = $HASHpassword;
                 header('Location: index.php');
