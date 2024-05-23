@@ -2,8 +2,8 @@
 
     session_start();
     include('../script.php');
-    unset($_SESSION['messaggio']);
 
+    unset($_SESSION['messaggio']);
 
     $email = $_POST["email"];
     $password = $_POST["password"];

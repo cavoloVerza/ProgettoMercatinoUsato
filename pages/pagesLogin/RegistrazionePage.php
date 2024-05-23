@@ -1,3 +1,8 @@
+<?php
+
+    session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +27,7 @@
                 <div class="col-12 my-4">
 
                     <h1>Crea il tuo Utente</h1>
-                    <form action="RegistrazioneCode.php" method="POST" class="mt-3">
+                    <form action="../../php/phpLogin/RegistrazioneCode.php" method="POST" class="mt-3">
                         <input type="text" placeholder="Nome" name="nome" required><br><br>
                         <input type="text" placeholder="Cognome" name="cognome" required><br><br>
                         <input type="number" placeholder="Età" name="eta" required><br><br>
@@ -42,6 +47,16 @@
             <div class="row">
             
                 <div class="col-12 mt-5">
+
+                    <?php
+                    
+                        /*if($_SESSION["regStatus"]) {
+
+                            echo "<p>" . . "</p>"
+                        }*/
+
+                    ?>
+
                 </div>
 
             </div>
