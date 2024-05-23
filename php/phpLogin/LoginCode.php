@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include('script.php');
+    include('../script.php');
     unset($_SESSION['messaggio']);
 
 
@@ -15,10 +15,9 @@
     $result = $conn->query($sql);
 
     if ($result == FALSE) {
-
-        $_SESSION['messaggio'] = "NON SEI ANCORA REGISTATO!!!";
+        $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
         header('Location: Messaggio.php');
-    }
+      }
 
     else {
 
@@ -40,7 +39,9 @@
             
             else {
                 
-                $_SESSION["loggato"] = "log";
+                $_SESSION["loggato"]="log";
+                $_SESSION["IDU"] = $row['ID'];
+                $_SESSION["nome"] = $row['Nome'];
                 $_SESSION["email"] = $email;
                 $_SESSION["pw"] = $HASHpassword;
                 header('Location: index.php');

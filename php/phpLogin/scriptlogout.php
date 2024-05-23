@@ -4,9 +4,11 @@
     include('script.php');
 
     if( empty($_SESSION['loggato']) ){
-        
-        header("Location: LoginPage.html");
+                
+        header("Location: ../../pages/pagesLogin/LoginPage.html");
     }
+
     unset($_SESSION['loggato']);
+    echo "LOGOUT EFFETTUATO";
     
 ?>
