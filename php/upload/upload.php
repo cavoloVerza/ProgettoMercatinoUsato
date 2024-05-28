@@ -1,10 +1,9 @@
 <?php
 session_start();
-include('script.php');
+include('../script.php');
 
 if( empty($_SESSION["loggato"]) ){
-            
-    header("Location: LoginPage.html");
+    header("Location: ../../pages/login/login.php");
 }
 
 
@@ -18,7 +17,7 @@ if( empty($_SESSION["loggato"]) ){
         
         // PORTA IL FILE NELLA CARTELLA DEDICATA [V]
         $imgContent = file_get_contents($image['tmp_name']);
-        $CARTELLA = 'imgs/';
+        $CARTELLA = '../../images/';
         $imageName = basename($image['name']);
         $targetFilePath = $CARTELLA . time() . '_' . $imageName;
         
@@ -65,7 +64,7 @@ if( empty($_SESSION["loggato"]) ){
             $_SESSION["messaggio"] = "Errore durante il caricamento del prodotto: " . $conn->error;
         }
 
-        header('Location: Messaggio.php');
+        header('Location: ../../index.php');
 
     
 

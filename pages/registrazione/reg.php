@@ -22,7 +22,7 @@
   <body>
 
 
-</div>
+
     <div class="main">
       <p class="sign" align="center">Sign in</p>
       <form action="../../php/Registrazione/RegistrazioneCode.php" method="POST">
@@ -31,7 +31,7 @@
          <input class="pass" type="number" align="center" placeholder="Età"  name="eta" required>
         <input class="un " type="email" align="center" placeholder="Email" name="email" required>
         <input class="pass" type="password" align="center" placeholder="Password"  name="password" required>
-        <a class="submit" align="center">Sign up</a>
+        <button class="submit" align="center">Sign up</button>
         
       </form> 
         <h3 class="sign "align="center">Hai già un account? ACCEDI! </h3>

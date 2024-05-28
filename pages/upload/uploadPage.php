@@ -1,48 +1,61 @@
 <?php
-session_start();
-include('../php/script.php');
 
-if( empty($_SESSION["loggato"]) ){
-            
-    header("Location: LoginPage.html");
-}
+  session_start();
+  include('../../php/script.php');
+
+  if( empty($_SESSION["loggato"]) ){
+              
+    header("Location: ../login/login.php");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        
-        <label for="">Nome del prodotto: </label>
-        <input type="text" name="Nome" id="Nome">
+<div class="main">
+      <p class="sign" align="center">Carica Articolo</p>
+      <form action="../../php/upload/upload.php" method="POST">
+         <input class="un " type="text" align="center" placeholder="Nome del prodotto" name="Nome" id="Nome" required>
+         <input class="pass" type="text" align="center" placeholder="Descrizione del prodotto"  name="Descrizione" id="Descrizione">
+         <p align="center" class="sign">Categoria del prodotto: </p>
+            <select class="un " name="Categoria" id="Categoria" align="center">
+                <?php 
+                
+                $sql = "SELECT NomeCategoria FROM categoria";
+                $result = $conn->query($sql);
+                while($row = mysqli_fetch_assoc($result)){
+                    foreach ($row as $value) {
+                    echo "<option value='Categoria'>" . $value . "</option>";
+                    }
 
-        <label for="">Descrizione del prodotto: </label>
-        <input type="text" name="Descrizione" id="Descrizione">
-
-        <label for="">Categoria del prodotto: </label>
-        <select name="Categoria" id="Categoria">
-            <?php 
-            
-            $sql = "SELECT NomeCategoria FROM categoria";
-            $result = $conn->query($sql);
-            while($row = mysqli_fetch_assoc($result)){
-                foreach ($row as $value) {
-                echo "<option value='Categoria'>" . $value . "</option>";
                 }
 
-            }
+                ?>
+            </select>
+        <input class="un " align="center" placeholder="Foto articolo" type="file" name="image" id="image" required>
 
-            ?>
-        </select>
+        <button class="submit" align="center">Carica</button>
+        
+      </form> <br>
+        <div class="un "align="center">
+         <a href="../../index.php" >torna alla Home</a>
+        </div>
+        
+    </div>
 
-        <label for="image">Scegli un'immagine:</label>
-        <input type="file" name="image" id="image" required>
 
-        <button type="submit">Upload</button>
-    </form>
+
 </body>
 </html>

@@ -52,6 +52,13 @@
     </nav>
 
    <div class="container">
+    <div class="container boxx">
+        <br><a href="../upload/uploadPage.php">
+      <button  type="button" class="btn btn-secondary btn-sm">
+        <h1>Carica un articolo!</h1>
+      </button></a>
+      
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
 
       <?php   

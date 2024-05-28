@@ -1,12 +1,11 @@
 <?php
 
-    session_start();
-    include('script.php');
+session_start();
+include('../script.php');
 
-    if( empty($_SESSION["loggato"]) ){
-                
-        header("Location: ../login.php");
-    }
+if( empty($_SESSION["loggato"]) ){
+    header("Location: ../../pages/login/login.php");
+}
 
     $email = $_POST["email"];
     $password = $_POST["password"];
