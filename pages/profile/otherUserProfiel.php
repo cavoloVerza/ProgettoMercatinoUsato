@@ -55,13 +55,13 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
 
       <?php   
-
-        $sql = "SELECT IDogg, NomeOggetto, Foto, Descrizione, Nome, utente.Email, utente.Password, utente.ID FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
+        $email = $_POST['email'];
+        $sql = "SELECT IDogg, NomeOggetto, Foto, Descrizione, Nome, Email, utente.Password, utente.ID FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
           while($COLONNA = $result->fetch_assoc()) {
-            if($_SESSION['pw'] == $COLONNA['Password'] && $_SESSION['email'] == $COLONNA['Email']){
+            if($email == $COLONNA['Email']){
       ?>
 
               <div class="col-lg-3 col-md-6 pippo">
@@ -71,14 +71,14 @@
                         <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
                         <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
                       </div>
-                      <!--
+                      
                     <div class="card-footer">
                       
                         <form action='Offer.php' method='POST' class="formProva">
                         <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
                         <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/Offer.php#content">Offerta</button>
                       </form> 
-                    </div>-->
+                    </div>
                   </div>
                 </div>
 

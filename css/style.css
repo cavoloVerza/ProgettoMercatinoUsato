@@ -1,4 +1,6 @@
-
+container {
+  height: 100%;
+}
 
 .h1Benvenuto {
 
@@ -78,8 +80,8 @@ ul .titolo{
 .o{
   margin: auto;
   margin-bottom: 20%;
-  height: 100%;
-  width: 80%;
+  height: 90%;
+  width: 70%;
   overflow: hidden;
 }
 
@@ -118,6 +120,12 @@ ul .titolo{
 .p1{
   margin-top: 1%;
   margin-right: 1%;
+}
+
+.imgOffer {
+
+  width: 100%;
+  height: 100%;
 }
 
 

@@ -19,18 +19,21 @@
 
   <body>
     <div class="main">
+
       <p class="sign" align="center">Sign in</p>
+
       <form action="../../php/login/LoginCode.php" method="POST">
         <input class="un " type="email" align="center" placeholder="Email" name="email" required>
         <input class="pass" type="password" align="center" placeholder="Password"  name="password" required>
-        <a class="submit" align="center">Sign in</a>
-        
+        <button class="submit" align="center">Sign in</button>
       </form> 
-        <h3 class="sign "align="center">Non hai un account? REGISTRATI! </h3>
-        <div class="un "><a href="../registrazione/reg.php">Registrati</a></div>
-        <div class="un "align="center">
-         <a href="../../index.php" >torna alla Home</a>
-        </div>
+
+      <h3 class="sign "align="center">Non hai un account? REGISTRATI! </h3>
+      <div class="un "><a href="../registrazione/reg.php">Registrati</a></div>
+      <div class="un "align="center">
+        <a href="../../index.php" >torna alla Home</a>
+      </div>
+
     </div>
      
   </body>

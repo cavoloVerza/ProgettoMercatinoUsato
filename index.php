@@ -25,14 +25,14 @@
 
       <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark bg-black">
         <div class="container-fluid">
-            <img src="images/tondoo.png"class="logoNavbar">
-            <div class="titolonav">
-              <a  class="titolo" href="#">RE-VEND</a>
-            </div>
+          <img src="images/tondoo.png"class="logoNavbar">
+          <div class="titolonav">
+            <a  class="titolo" href="#">RE-VEND</a>
+          </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Contact Us</a>
             </ul>
            
             <div class="p1">
@@ -47,7 +47,7 @@
 
       <div class="conatiner">
 
-        <div class="row">
+        <div class="row text-center mt-4">
           <div class ="col-12">
             <?php 
               if( !empty($_SESSION['loggato'])){          
@@ -70,18 +70,19 @@
 
 <!-- ----------------------------------------- -->
 
-                    <div class="col-lg-4 col-md-6 pippo">
+                    <div class="col-lg-3 col-md-6 pippo">
                       <div class="card o">
                         <img src="<?php echo $COLONNA['Foto'] ?>" >
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                            <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
                           </div>
                         <div class="card-footer">
-                          
-                          <form action='Offer.php' method='POST' class="formProva">
-                            <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
-                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/Offer.php#content">Offerta</button>
+                        <form action='pages/profile/otherUserProfiel.php' method='POST' class="formProva">
+                        <button id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
+                        </form>
+                          <form action='pages/offer/Offer.php' method='POST' class="formProva">
+                            
+                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
                           </form>
                         </div>
                       </div>
@@ -96,16 +97,18 @@
                 ?> 
                     <div class="col-lg-4 col-md-6 pippo">
                       <div class="card o">
-                        <img src="<?php echo $COLONNA['Foto'] ?>" >
+                        <img src="<?php echo $COLONNA['Foto'] ?>" class="immagine" >
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                            <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
                           </div>
                         <div class="card-footer">
                           
-                          <form action='Offer.php' method='POST' class="formProva">
-                            <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
-                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/Offer.php#content">Offerta</button>
+                        <form action='pages/profile/otherUserProfiel.php' method='POST' class="formProva">
+                        <button id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
+                        </form>
+                          <form action='pages/offer/Offer.php' method='POST' class="formProva">
+                            
+                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
                           </form>
                         </div>
                       </div>
