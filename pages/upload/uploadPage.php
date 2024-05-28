@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('script.php');
+include('../php/script.php');
 
 if( empty($_SESSION["loggato"]) ){
             

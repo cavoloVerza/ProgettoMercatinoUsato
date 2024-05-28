@@ -18,7 +18,7 @@ if( empty($_SESSION["loggato"]) ){
         
         // PORTA IL FILE NELLA CARTELLA DEDICATA [V]
         $imgContent = file_get_contents($image['tmp_name']);
-        $CARTELLA = 'images/objectImg/';
+        $CARTELLA = 'imgs/';
         $imageName = basename($image['name']);
         $targetFilePath = $CARTELLA . time() . '_' . $imageName;
         

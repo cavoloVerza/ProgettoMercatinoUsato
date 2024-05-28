@@ -1,9 +1,9 @@
 <?php
 
     session_start();
-    include('../script.php');
-
+    include('script.php');
     unset($_SESSION['messaggio']);
+
 
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -16,7 +16,7 @@
 
     if ($result == FALSE) {
         $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
-        header('Location: Messaggio.php');
+        header('Location: ../error.php');
       }
 
     else {
@@ -24,7 +24,7 @@
         if($result->num_rows == 0) {
 
             $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
-            header('Location: Messaggio.php');
+            header('Location: ../error.php');
         } 
 
         else {
@@ -34,7 +34,7 @@
             if($HASHpassword != $row["Password"]) {
 
                 $_SESSION["messaggio"] = "Error wrong password: " . $conn->error;
-                header('Location: Messaggio.php');
+                header('Location: ../error.php');
             } 
             
             else {
@@ -44,9 +44,11 @@
                 $_SESSION["nome"] = $row['Nome'];
                 $_SESSION["email"] = $email;
                 $_SESSION["pw"] = $HASHpassword;
-                header('Location: index.php');
+                header('Location: ../index.php');
             }
 
         }
     }
+
+ 
 ?> 

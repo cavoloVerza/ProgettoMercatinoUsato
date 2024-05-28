@@ -1,28 +1,228 @@
-body {
 
-    text-align: center;
-    color: blue;
+
+.h1Benvenuto {
+
+  font-size: 50px;
 }
 
-.box {
-    background-color: rgb(173, 160, 126);
+.titolo {
 
+  font-family: "Days One", sans-serif;
+  font-size: 220%;
+  color: white;
+  text-decoration: none;
+  margin-left: 10%;
 
-    padding: 1%;
-    padding-top: 5%;
-    padding-bottom: 2%;
-    text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
 }
 
-.Fotoo {
-    width: 150px;
-    object-fit: contain;
+a .titolo{
+  width: 3px;
 }
 
-h1 {
-    text-align: center;
+ul .titolo{
+  color: white;
+}
+
+.titolonav{
+    width: 15%;
+}
+
+.logoNavbar{
+  width: 4%;
+}
+
+.navdiv{
+  width: 5%;
+}
+
+.divtitolo{
+  width: 13%;
+}
+
+.footerlogo{
+  width: 6%;
+}
+
+.prof{
+  color: white;
+  font-size: larger;
+  
+}
+
+.linketto{
+  color: #2a2927;
+  text-decoration: none;
+  
+}
+
+.nav-item{
+  margin-left: 5%;
+}
+
+#rowina{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+
+}
+
+.immagine{
+  width: 100%;
+  margin: auto;
+  
+}
+            
+.o{
+  margin: auto;
+  margin-bottom: 20%;
+  height: 100%;
+  width: 80%;
+  overflow: hidden;
+}
+
+.o img{
+  flex-shrink: 0;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.pippo{
+  height: 600px;
+  margin-bottom: 4%;
+}
+
+#bottoncino{
+  border: 0;
+  background-color:transparent;
+  margin-left: auto;
+}
+
+.spn{
+  margin-right: auto;
+}
+
+.formProva{
+  display: flex;
+  justify-content: space-between; /* Distribuisce gli elementi lungo l'asse principale */
+  align-items: center
+}
+
+.iconaprof{
+  color: white;
+  font-size: 160%;
+}
+
+.p1{
+  margin-top: 1%;
+  margin-right: 1%;
+}
+
+
+/* __________ CSS Login/Registrazione____________ */
+
+
+
+.main {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 100%;
+  padding-bottom: 1%;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+  padding-top: 40px;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.un {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.pass {
+      width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+
+.un:focus, .pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  
+}
+
+.submit {
+cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, black, grey);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 35%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: black;
+  padding-top: 15px;
+}
+
+a {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: black;
+  text-decoration: none
+}
+
+@media (max-width: 600px) {
+  .main {
+      border-radius: 0px;
+  }
 }
