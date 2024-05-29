@@ -55,7 +55,7 @@ if( empty($_SESSION["loggato"]) ){
         //$result2 = $conn->query($sql2);
         //$row2 = mysqli_fetch_assoc($result2);
         //$ID_UT = $row2['ID'];
-        $_SESSION["provaa"] = "dati=  " . $descrizione . " " . $imageLink . " " . $ID_CAT . " " . $idu . " " . $nome . "";
+        echo  "dati=  " . $descrizione . " " . $imageLink . " " . $ID_CAT . " " . $idu . " " . $nome . "";
         
         $sql3 = "INSERT INTO oggetto (Descrizione, Foto, IDCategoria, IdUtente, Nome) VALUES ('$descrizione', '$imageLink', 2, $idu, '$nome')";
         if ($conn->query($sql3) == TRUE) {
@@ -64,7 +64,7 @@ if( empty($_SESSION["loggato"]) ){
             $_SESSION["messaggio"] = "Errore durante il caricamento del prodotto: " . $conn->error;
         }
 
-        header('Location: ../../index.php');
+        //header('Location: ../../index.php');
 
     
 

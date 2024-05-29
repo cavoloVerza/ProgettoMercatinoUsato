@@ -26,7 +26,7 @@
 <body>
 <div class="main">
       <p class="sign" align="center">Carica Articolo</p>
-      <form action="../../php/upload/upload.php" method="POST">
+      <form action="../../php/upload/upload.php" method="POST" enctype="multipart/form-data">
          <input class="un " type="text" align="center" placeholder="Nome del prodotto" name="Nome" id="Nome" required>
          <input class="pass" type="text" align="center" placeholder="Descrizione del prodotto"  name="Descrizione" id="Descrizione">
          <p align="center" class="sign">Categoria del prodotto: </p>
