@@ -35,13 +35,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Contact Us</a>
             </ul>
            
             <div class="p1">
-              <p class="prof">Account</p>
+              <a href="pages/profile/profile.php"<p class="prof">Account</p></i></a>
             </div>
-            <div class="p2 me-2">
+            <div class="me-2">
               <a href="pages/profile/profile.php" class="iconaprof"><i class="bi bi-person-circle" ></i></a>
             </div>
           </div>
@@ -68,7 +67,8 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while($COLONNA = $result->fetch_assoc()) {
-                if( empty($_SESSION["pw"]) && empty($_SESSION["email"]) && $COLONNA['StatoOggetto'] == 0){
+                if( empty($_SESSION["pw"]) && empty($_SESSION["email"])){
+                  if($COLONNA['StatoOggetto'] == 0) {
           ?>
 
 <!-- ----------------------------------------- -->
@@ -93,32 +93,29 @@
 
 <!-- ----------------------------------------- -->
 
-              <?php                          
+              <?php
+                    }                          
                   }
                   else{
                     if($_SESSION['email'] != $COLONNA['Email'] && $COLONNA['StatoOggetto'] == 0){
-                      
 
-                      
                 ?> 
                     <div class="col-lg-4 col-md-6 pippo">
                       <div class="card o">
                         <img src="<?php echo $COLONNA['Foto'] ?>" class="immagine" >
-                          <div class="card-body">
-                            
-                          </div>
-                          <div >
-                            <h5 class="card-title mx-2"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                            <button class="mx-2"id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
-                          </div>
-                      <div class="card-footer">
-                          
-                        <form action='pages/offer/Offer.php' method='POST' class="formProva">
-                          
-                            <button style="border-width:1px;border-color:grey"class="m-auto fs-6" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
-                          
-                        </form>
-                      </div>
+                        <div class="card-body"> 
+                        </div>
+                        <div >
+                          <h5 class="card-title mx-2"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                          <form action="pages/profile/otherUserProfile.php" method='POST'>
+                            <button class="mx-2" id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
+                          </form>
+                        </div>
+                        <div class="card-footer">   
+                          <form action='pages/offer/Offer.php' method='POST' class="formProva">
+                            <button style="border-width:1px;border-color:grey"class="m-auto fs-6" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?>">Offerta</button>
+                          </form>
+                        </div>
                       </div>
                     </div>
 

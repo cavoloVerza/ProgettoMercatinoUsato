@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2024 at 06:59 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Creato il: Mag 31, 2024 alle 01:39
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoria`
+-- Struttura della tabella `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -33,7 +33,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categoria`
+-- Dump dei dati per la tabella `categoria`
 --
 
 INSERT INTO `categoria` (`ID`, `NomeCategoria`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `categoria` (`ID`, `NomeCategoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oggetto`
+-- Struttura della tabella `oggetto`
 --
 
 CREATE TABLE `oggetto` (
@@ -54,52 +54,48 @@ CREATE TABLE `oggetto` (
   `Foto` varchar(255) DEFAULT NULL,
   `Descrizione` varchar(255) DEFAULT NULL,
   `IDCategoria` int(11) DEFAULT NULL,
-  `IdUtente` int(11) DEFAULT NULL
+  `IdUtente` int(11) DEFAULT NULL,
+  `StatoOggetto` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `oggetto`
+-- Dump dei dati per la tabella `oggetto`
 --
 
-INSERT INTO `oggetto` (`IDogg`, `NomeOggetto`, `Foto`, `Descrizione`, `IDCategoria`, `IdUtente`) VALUES
-(9, 'Nike AF1', 'images/scarpe.jpeg', 'Nike Air Force 1 Rosse e Bianche', 2, 2),
-(10, 'maglia nike', 'images/maglia.jpeg', 'maglietta bianca nike', 2, 2),
-(11, 'Giacca in pelle', 'images/giacca.jpg', 'Giacca x moto Dainese (vera pelle) usata', 2, 11),
-(12, 'Cappellino Gucci', 'images/cappellino.jpg', 'Cappellino bianco Gucci', 1, 12),
-(14, 'pantaloni', 'images/pantaloni.jpeg', 'pantaloni levis con fantasia', 2, 2);
+INSERT INTO `oggetto` (`IDogg`, `NomeOggetto`, `Foto`, `Descrizione`, `IDCategoria`, `IdUtente`, `StatoOggetto`) VALUES
+(9, 'Nike AF1', 'images/scarpe.jpeg', 'Nike Air Force 1 Rosse e Bianche', 2, 4, 0),
+(10, 'maglia nike', 'images/maglia.jpeg', 'maglietta bianca nike', 2, 4, 1),
+(11, 'Giacca in pelle', 'images/giacca.jpg', 'Giacca x moto Dainese (vera pelle) usata', 2, 11, 0),
+(12, 'Cappellino Gucci', 'images/cappellino.jpg', 'Cappellino bianco Gucci', 1, 12, 0),
+(14, 'pantaloni', 'images/pantaloni.jpeg', 'pantaloni levis con fantasia', 2, 4, 0),
+(19, 'dinosauro', 'images/download.jpeg', 'dinosauro', 2, 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proposta`
+-- Struttura della tabella `proposta`
 --
 
 CREATE TABLE `proposta` (
-  `ID` int(11) NOT NULL,
+  `IDpro` int(11) NOT NULL,
   `Cifra` decimal(10,2) NOT NULL,
   `DataOra` datetime DEFAULT NULL,
-  `Stato` tinyint(1) DEFAULT NULL,
+  `StatoOfferta` tinyint(1) DEFAULT NULL,
   `IdOfferente` int(11) DEFAULT NULL,
   `IdOggetto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `proposta`
+-- Dump dei dati per la tabella `proposta`
 --
 
-INSERT INTO `proposta` (`ID`, `Cifra`, `DataOra`, `Stato`, `IdOfferente`, `IdOggetto`) VALUES
-(1, 3.00, '2024-05-27 17:03:19', 0, 12, 12),
-(2, 78789.00, '2024-05-27 17:04:30', 0, 11, 11),
-(3, 99.00, '2024-05-27 17:26:29', 0, 11, 11),
-(4, 60.00, '2024-05-27 17:53:21', 0, 11, 11),
-(5, 80.00, '2024-05-27 18:19:40', 0, 12, 12),
-(6, 9.00, '2024-05-27 18:31:24', 0, 11, 11),
-(7, 9.00, '2024-05-27 18:31:24', 0, 11, 11);
+INSERT INTO `proposta` (`IDpro`, `Cifra`, `DataOra`, `StatoOfferta`, `IdOfferente`, `IdOggetto`) VALUES
+(12, 10.00, '2024-05-30 23:15:24', 2, 2, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utente`
+-- Struttura della tabella `utente`
 --
 
 CREATE TABLE `utente` (
@@ -112,7 +108,7 @@ CREATE TABLE `utente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `utente`
+-- Dump dei dati per la tabella `utente`
 --
 
 INSERT INTO `utente` (`ID`, `Nome`, `Cognome`, `Email`, `Password`, `Eta`) VALUES
@@ -125,18 +121,18 @@ INSERT INTO `utente` (`ID`, `Nome`, `Cognome`, `Email`, `Password`, `Eta`) VALUE
 (12, 'Gilberto', 'Nana', 'GilbertNana@a.a', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1);
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `categoria`
+-- Indici per le tabelle `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `NomeCategoria` (`NomeCategoria`);
 
 --
--- Indexes for table `oggetto`
+-- Indici per le tabelle `oggetto`
 --
 ALTER TABLE `oggetto`
   ADD PRIMARY KEY (`IDogg`),
@@ -144,15 +140,15 @@ ALTER TABLE `oggetto`
   ADD KEY `IdUtente` (`IdUtente`);
 
 --
--- Indexes for table `proposta`
+-- Indici per le tabelle `proposta`
 --
 ALTER TABLE `proposta`
-  ADD PRIMARY KEY (`ID`),
+  ADD PRIMARY KEY (`IDpro`),
   ADD KEY `IdOfferente` (`IdOfferente`),
   ADD KEY `IdOggetto` (`IdOggetto`);
 
 --
--- Indexes for table `utente`
+-- Indici per le tabelle `utente`
 --
 ALTER TABLE `utente`
   ADD PRIMARY KEY (`ID`),
@@ -160,46 +156,46 @@ ALTER TABLE `utente`
   ADD UNIQUE KEY `Password` (`Password`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `categoria`
+-- AUTO_INCREMENT per la tabella `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `oggetto`
+-- AUTO_INCREMENT per la tabella `oggetto`
 --
 ALTER TABLE `oggetto`
-  MODIFY `IDogg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `IDogg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `proposta`
+-- AUTO_INCREMENT per la tabella `proposta`
 --
 ALTER TABLE `proposta`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IDpro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `utente`
+-- AUTO_INCREMENT per la tabella `utente`
 --
 ALTER TABLE `utente`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Constraints for table `oggetto`
+-- Limiti per la tabella `oggetto`
 --
 ALTER TABLE `oggetto`
   ADD CONSTRAINT `oggetto_ibfk_1` FOREIGN KEY (`IDCategoria`) REFERENCES `categoria` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `oggetto_ibfk_2` FOREIGN KEY (`IdUtente`) REFERENCES `utente` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `proposta`
+-- Limiti per la tabella `proposta`
 --
 ALTER TABLE `proposta`
   ADD CONSTRAINT `proposta_ibfk_1` FOREIGN KEY (`IdOfferente`) REFERENCES `utente` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,

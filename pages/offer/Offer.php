@@ -35,14 +35,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <a class="nav-link active" aria-current="page" href="../../index.php">Home</a>
-              <a class="nav-link" href="#">Contact Us</a>
             </ul>
            
             <div class="p1">
-              <p class="prof">Account</p>
+               <a href="../profile/profile.php"<p class="prof">Account</p></i></a>
             </div>
-            <div class="p2 me-2">
-              <a href="#" class="iconaprof"><i class="bi bi-person-circle" ></i></a>
+            <div class="me-2">
+              <a href="../profile/profile.php" class="iconaprof"><i class="bi bi-person-circle" ></i></a>
             </div>
           </div>
         </div>

@@ -41,6 +41,7 @@
               
               <a class="nav-link" href="../upload/uploadPage.php">Carica articolo</a>
               <a class="nav-link" href="../dashboard/dashboard.php">Dashboard</a>
+              <a class="nav-link" href="../../php/logout/scriptlogout.php">Logout</a>
             </ul>
            
             <div class="p1">
