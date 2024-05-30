@@ -12,7 +12,7 @@ if( empty($_SESSION["loggato"]) ){
     $ID_UT = $_SESSION['IDU'];
     $ID_OG = $_SESSION['id_oggetto'];
     
-    $sql = "INSERT INTO proposta (Cifra, DataOra, IdOfferente, IdOggetto, Stato) VALUES ($prezzo, CURRENT_TIMESTAMP, $ID_UT, $ID_OG, 0)";
+    $sql = "INSERT INTO proposta (Cifra, DataOra, IdOfferente, IdOggetto, StatoOfferta) VALUES ($prezzo, CURRENT_TIMESTAMP, $ID_UT, $ID_OG, 0)";
     $result = $conn->query($sql);
     if ($result == TRUE) {
 

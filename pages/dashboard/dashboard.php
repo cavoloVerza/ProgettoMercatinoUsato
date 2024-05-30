@@ -57,59 +57,84 @@
 
 
   <div class="container">
-    <div class="container boxx">
-      <br>
-    </div>
+ 
 
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
-      <div class=" col-lg-3 col-md-6 pippo">
-        <div class="card o">
-          <table>
+    <div class="tabe">
+
+    
+          <table style="border: 1px solid black" align="center" class="tabella">
+          <tr>
+            <th>Nome del prodotto</th>
+            <th>Nome dell'interessato</th>
+            <th>Data/ora della proposta</th>
+            <th>Prezzo proposto</th>
+            <th colspan="2">Stato</th>
+            </tr>
+     
+            
+            
 
       <?php  
 
         $email = $_SESSION['email'];
-        $sql = "SELECT * FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID JOIN proposta ON proposta.IdOggetto = oggetto.IDogg WHERE Email = '$email'";   
+        $sql = "SELECT * FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID JOIN proposta ON proposta.IdOggetto = oggetto.IDogg WHERE Email = '$email'"; 
+        
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
           while($COLONNA = $result->fetch_assoc()) {
             if($_SESSION['email'] == $COLONNA['Email']){
-               
-               echo "<tr>";
-               echo $COLONNA['NomeOggetto'];
-               echo"</tr>";
-      ?>
+              echo "<tr class='scelta'>";
+              echo "<td>" . $COLONNA['NomeOggetto'] . "</td>";
 
+                $id_offer = $COLONNA['IdOfferente'];
+                $sql2 = "SELECT Nome FROM utente  WHERE ID = '$id_offer'";   
+                $result2 = $conn->query($sql2);
+                $roww = $result2->fetch_assoc();
+              echo "<td>" . $roww['Nome'] . "</td>";
+
+
+              echo "<td>" . $COLONNA['DataOra'] . "</td>";
+              echo "<td>" . $COLONNA['Cifra'] . "</td>";
+              if($COLONNA['StatoOfferta'] == 0){
+                ?>
+                <form action="../../php/dashboard/dashboardCode.php" method="POST">
+                  <td> <button class="btn btn-light" style="border: 1px solid" value=" <?php echo "V," .  $COLONNA['IDpro']  ?> " name="decisione"> V </button> </td>
+                  <td> <button class="btn btn-light" style="border: 1px solid" value=" <?php echo "X," . $COLONNA['IDpro'] ?> " name="decisione"> X </button> </td>
+                </form>
+                
+                <?php
+              }
+              if($COLONNA['StatoOfferta'] == 1){
+                echo "<td colspan='2'> X </td>";
+              }
+              if($COLONNA['StatoOfferta'] == 2){
+                echo "<td colspan='2'> V </td>";
+              }
               
-                        
-                    </table>
-                  </div>
-                </div>
-
-      <?php
-            }                          
+              echo "</tr>";
+                }                          
           }
         }
         else {
           echo "0 results";
         }
-                  
-      ?>
+           
+      ?> 
+
+              
+                        
+                    </table>
+          
+                    </div>
+     
                         </div>
                         <br>
-                  
-                  </div>
+     
 
-               </div>
-
-
-
-      </div>
-      
-   </div>
+  
                
-</div>
+  </div>
                
 
    </body>

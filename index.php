@@ -64,11 +64,11 @@
 
           <?php
                                 
-            $sql = "SELECT IDogg, NomeOggetto, Foto, Descrizione, Nome, Email, Password, ID FROM oggetto JOIN utente ON oggetto.IdUtente = ID";   
+            $sql = "SELECT * FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while($COLONNA = $result->fetch_assoc()) {
-                if( empty($_SESSION["pw"]) && empty($_SESSION["email"]) ){
+                if( empty($_SESSION["pw"]) && empty($_SESSION["email"]) && $COLONNA['StatoOggetto'] == 0){
           ?>
 
 <!-- ----------------------------------------- -->
@@ -96,7 +96,10 @@
               <?php                          
                   }
                   else{
-                    if($_SESSION['pw'] != $COLONNA['Password'] && $_SESSION['email'] != $COLONNA['Email']){
+                    if($_SESSION['email'] != $COLONNA['Email'] && $COLONNA['StatoOggetto'] == 0){
+                      
+
+                      
                 ?> 
                     <div class="col-lg-4 col-md-6 pippo">
                       <div class="card o">
@@ -120,6 +123,7 @@
                     </div>
 
                     <?php
+                    
                     }   
                   }
                 }

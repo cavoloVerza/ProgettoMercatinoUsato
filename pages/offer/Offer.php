@@ -115,31 +115,7 @@
 
       </div>
 
-      <!-- <div class="col-lg-3 col-md-6 pippo">
-         <div class="tshirt_img"><img class="imma" src="../../<?php echo $COLONNA['Foto'] ?>"></div>
-         <div class="card-body">
-            <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-         </div>
-         <div class="card-footer">                    
-            <form action='pages/offer/Offer.php' method='POST' class="formProva">
-               <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
-            </form>
-         </div>
-      </div> 
-      
-      <div class="col-lg-9 col-md-6 pippo">
-         <div>
-            <h5 class="card-title"><?php echo "DESCRIZIONE" ?></h5>
-            <p class="card-text" class=""><?php echo $COLONNA['Descrizione'] ?></p>
-         </div>
-         <form  action='../../php/offer/offercode.php' method='POST' class="my-4">
-            <input type="number" step="0.01" min="0" placeholder="0.00" name="prezzo" required><br><br>
-            <div class="btn_main">
-               <div class="buy_bt"><button id="bottoncino" type='submit' name='idogg' value=" <?php $COLONNA['ID'] ?> "href="offercode.php">Buy Now</button></div>
-            </div>
-         </form>  
-      </div>   -->
-
+  
    </body>
 
 </html>
