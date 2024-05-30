@@ -38,7 +38,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <a class="nav-link active" aria-current="page" href="../../index.php">Home</a>
-              <a class="nav-link" href="#">Contact Us</a>
+              
+              <a class="nav-link" href="../upload/uploadPage.php">Carica articolo</a>
+              <a class="nav-link" href="../dashboard/dashboard.php">Dashboard</a>
             </ul>
            
             <div class="p1">
@@ -53,10 +55,7 @@
 
    <div class="container">
     <div class="container boxx">
-        <br><a href="../upload/uploadPage.php">
-      <button  type="button" class="btn btn-secondary btn-sm">
-        <h1>Carica un articolo!</h1>
-      </button></a>
+        <br>
       
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
@@ -68,24 +67,22 @@
         
         if ($result->num_rows > 0) {
           while($COLONNA = $result->fetch_assoc()) {
-            if($_SESSION['pw'] == $COLONNA['Password'] && $_SESSION['email'] == $COLONNA['Email']){
+            if($_SESSION['email'] == $COLONNA['Email']){
       ?>
 
-              <div class="col-lg-3 col-md-6 pippo">
+              <div class="col-lg-5 col-md-6 pippo">
                   <div class="card o">
                     <img src="../../<?php echo $COLONNA['Foto'] ?>" >
                       <div class="card-body">
-                        <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                        <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
-                      </div>
-                      <!--
-                    <div class="card-footer">
                       
-                        <form action='Offer.php' method='POST' class="formProva">
-                        <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
-                        <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/Offer.php#content">Offerta</button>
-                      </form> 
-                    </div>-->
+                      </div>  
+                      <div>
+                        <h5 class=" ms-3 mb-4"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                      </div>          
+                      
+                    <div class="card-footer">
+                    <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
+                    </div>
                   </div>
                 </div>
 

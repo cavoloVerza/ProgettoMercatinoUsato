@@ -15,7 +15,9 @@
     $result = $conn->query($sql);
 
     if ($result == FALSE) {
+        
         $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
+        $_SESSION["errorLogin"] = true;
         header('Location: ../../../pages/login/login.php');
       }
 
@@ -24,6 +26,7 @@
         if($result->num_rows == 0) {
 
             $_SESSION['messaggio'] = " NON SEI ANCORA REGISTATO!!!";
+            $_SESSION["errorLogin"] = true;
             header('Location: ../../../pages/login/login.php');
         } 
 
@@ -34,6 +37,7 @@
             if($HASHpassword != $row["Password"]) {
 
                 $_SESSION["messaggio"] = "Error wrong password: " . $conn->error;
+                $_SESSION["errorLogin"] = true;
                 header('Location: ../../pages/login/login.php');
             } 
             

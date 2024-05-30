@@ -9,7 +9,7 @@ if( empty($_SESSION["loggato"]) ){
 
 
     $prezzo = $_POST["prezzo"];
-    $ID_UT = $_SESSION['compratore'];
+    $ID_UT = $_SESSION['IDU'];
     $ID_OG = $_SESSION['id_oggetto'];
     
     $sql = "INSERT INTO proposta (Cifra, DataOra, IdOfferente, IdOggetto, Stato) VALUES ($prezzo, CURRENT_TIMESTAMP, $ID_UT, $ID_OG, 0)";

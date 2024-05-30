@@ -83,13 +83,31 @@
 
       <div class="container mt-5">
 
-         <div class="row">
+         <div class="row" >
 
             <div class="col-6">
-               <img src="../../<?php echo $Foto ?>" class="imgOffer">
+         
+               <div class="card">
+            
+                  <img src="../../<?php echo $Foto ?>" class="imgOffer">
+               
+               </div>
+
             </div>
 
             <div class="col-6">
+
+               <h5>DETTAGLI</h5>
+               <?php echo $Descrizione?>
+               <br>
+               <br>
+
+               <form  action='../../php/offer/offercode.php' method='POST' class="my-4">
+                  <input type="number" step="0.01" min="0" placeholder="0.00" name="prezzo" required><br><br>
+                  <div class="btn_main">
+                     <div class="buy_bt"><button style="border-width:1px" type='submit' name='idogg' value=" <?php $COLONNA['ID'] ?> "href="offercode.php">Buy Now</button></div>
+                  </div>
+               </form>
                
             </div>
 

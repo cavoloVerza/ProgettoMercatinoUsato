@@ -1,6 +1,12 @@
 <?php
   session_start();
   include('../../php/script.php');
+
+  if(!isset($_SESSION["errorLogin"])) {
+
+    $_SESSION["errorLogin"] = false;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +24,21 @@
   </head>
 
   <body>
+
+    <?php
+      
+      if($_SESSION["errorLogin"]) {
+
+        echo "<div class='main centro'>";
+        echo "<h1 style=color:red>ERROR</h1>";
+        echo  "<p>". $_SESSION["messaggio"]. "</p>";
+        echo "</div>";
+
+        $_SESSION["errorLogin"] = false;
+      }
+    
+    ?>
+
     <div class="main">
 
       <p class="sign" align="center">Sign in</p>

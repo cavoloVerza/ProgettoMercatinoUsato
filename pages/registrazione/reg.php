@@ -1,8 +1,11 @@
-
-
 <?php
   session_start();
   include('../../php/script.php');
+
+  if(!isset($_SESSION["errorRegistrazione"])) {
+
+    $_SESSION["errorRegistrazione"] = false;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,24 +24,38 @@
 
   <body>
 
+    <?php
+    
+      if($_SESSION["errorRegistrazione"]) {
 
+        echo "<div class='main centro'>";
+        echo "<h1 style=color:red>ERROR</h1>";
+        echo  "<p>". $_SESSION["messaggio"]. "</p>";
+        echo "</div>";
+
+        $_SESSION["errorRegistrazione"] = false;
+      }
+    
+    ?>
 
     <div class="main">
+
       <p class="sign" align="center">Sign in</p>
+
       <form action="../../php/Registrazione/RegistrazioneCode.php" method="POST">
-         <input class="un " type="text" align="center" placeholder="Nome" name="nome" required>
-         <input class="pass" type="text" align="center" placeholder="Cognome"  name="cognome" required>
-         <input class="pass" type="number" align="center" placeholder="Età"  name="eta" required>
+        <input class="un " type="text" align="center" placeholder="Nome" name="nome" required>
+        <input class="pass" type="text" align="center" placeholder="Cognome"  name="cognome" required>
+        <input class="pass" type="number" align="center" placeholder="Età"  name="eta" min="18" required>
         <input class="un " type="email" align="center" placeholder="Email" name="email" required>
         <input class="pass" type="password" align="center" placeholder="Password"  name="password" required>
         <button class="submit" align="center">Sign up</button>
-        
       </form> 
-        <h3 class="sign "align="center">Hai già un account? ACCEDI! </h3>
-        <div class="un "><a href="../login/login.php">Accedi</a></div>
-        <div class="un "align="center">
-         <a href="../../index.php" >torna alla Home</a>
-        </div>
+
+      <h3 class="sign" align="center"> <div class="un"><a href="../login/login.php">Hai già un account? ACCEDI!</a></div></h3>
+
+      <div class="un" align="center">
+        <a href="../../index.php" >torna alla Home</a>
+      </div>
         
     </div>
      
