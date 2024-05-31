@@ -67,32 +67,32 @@
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while($COLONNA = $result->fetch_assoc()) {
-                if( empty($_SESSION["pw"]) && empty($_SESSION["email"])){
+                if( empty($_SESSION["pw"]) && empty($_SESSION["email"]) ){
                   if($COLONNA['StatoOggetto'] == 0) {
           ?>
 
 <!-- ----------------------------------------- -->
 
-                    <div class="col-lg-3 col-md-6 pippo">
+<div class="col-lg-3 col-md-6 pippo">
                       <div class="card o">
                         <img src="<?php echo $COLONNA['Foto'] ?>" >
                           <div class="card-body">
-                            <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                           
                           </div>
-                        <div class="card-footer">
+                          <h5 class="card-title ms-1"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                       
 
                         <form action='pages/profile/otherUserProfile.php' method='POST' class="formProva">
-                        <button id="bottoncino" type="submit" name="EM" value=" <?php echo $COLONNA["Email"] ?> " href="pages/profile/otherUserProfile.php">by <?php echo $COLONNA['Name'] ?></button>
+                        <button id="bottoncino" type="submit" name="EM" value="<?php echo $COLONNA["Email"] ?>">by <?php echo $COLONNA['Nome'] ?></button>
                         </form>
-
+                        <div class="card-footer">
                           <form action='pages/offer/Offer.php' method='POST' class="formProva">
                             
-                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
+                            <button style="border-width:1px;border-color:grey" class="m-auto fs-6"  type='submit' name='idogg' value="<?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?>">Offerta</button>
                           </form>
                         </div>
                       </div>
                     </div>
-
 <!-- ----------------------------------------- -->
 
               <?php
@@ -106,17 +106,18 @@
                       <div class="card o">
                         <img src="<?php echo $COLONNA['Foto'] ?>" >
                           <div class="card-body">
-                            <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                           
                           </div>
-                        <div class="card-footer">
+                          <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                       
 
                         <form action='pages/profile/otherUserProfile.php' method='POST' class="formProva">
-                        <button id="bottoncino" type="submit" name="EM" value=" <?php echo $COLONNA["Email"] ?> " href="pages/profile/otherUserProfile.php">by <?php echo $COLONNA['Nome'] ?></button>
+                        <button id="bottoncino" type="submit" name="EM" value="<?php echo $COLONNA["Email"] ?>">by <?php echo $COLONNA['Nome'] ?></button>
                         </form>
-
+                        <div class="card-footer">
                           <form action='pages/offer/Offer.php' method='POST' class="formProva">
                             
-                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
+                            <button style="border-width:1px;border-color:grey" class="m-auto fs-6"  type='submit' name='idogg' value="<?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?>">Offerta</button>
                           </form>
                         </div>
                       </div>

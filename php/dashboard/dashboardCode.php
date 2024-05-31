@@ -39,6 +39,8 @@
 
             $sql2 = "UPDATE oggetto SET StatoOggetto = 1 WHERE IDogg = $IDO";
             $result2 = $conn->query($sql2);
+
+            
         }
         
         

@@ -65,7 +65,7 @@
         $idu = $_SESSION['IDU'];
         $sql2 = "SELECT Nome, Cognome, Eta, Email FROM utente WHERE utente.ID = '$idu'";   
         $result2 = $conn->query($sql2);
-        $count = 0;
+        
         echo "<div class='col-lg-12 col-md-12 text-center'>";
 
         while($row = $result2->fetch_assoc()){
@@ -75,7 +75,7 @@
                 echo $value  . "</p>";
                 }
             
-            $count ++;
+        
 
           echo "<p>";
         }
