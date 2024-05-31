@@ -62,8 +62,25 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
 
       <?php   
+        $idu = $_SESSION['IDU'];
+        $sql2 = "SELECT Nome, Cognome, Eta, Email FROM utente WHERE utente.ID = '$idu'";   
+        $result2 = $conn->query($sql2);
+        $count = 0;
+        echo "<div class='col-lg-12 col-md-12 text-center'>";
 
-        $sql = "SELECT IDogg, NomeOggetto, Foto, Descrizione, Nome, utente.Email, utente.Password, utente.ID FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
+        while($row = $result2->fetch_assoc()){
+          
+            foreach ($row as $chiave => $value) {
+                echo "<p>" . $chiave . ": ";
+                echo $value  . "</p>";
+                }
+            
+            $count ++;
+
+          echo "<p>";
+        }
+        echo "</div>";
+        $sql = "SELECT * FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {

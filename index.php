@@ -38,7 +38,7 @@
             </ul>
            
             <div class="p1">
-              <a href="pages/profile/profile.php"<p class="prof">Account</p></i></a>
+              <a href="pages/profile/profile.php" class="prof"><p>Account</p></a>
             </div>
             <div class="me-2">
               <a href="pages/profile/profile.php" class="iconaprof"><i class="bi bi-person-circle" ></i></a>
@@ -80,9 +80,11 @@
                             <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
                           </div>
                         <div class="card-footer">
-                        <form action='pages/profile/otherUserProfiel.php' method='POST' class="formProva">
-                        <button id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
+
+                        <form action='pages/profile/otherUserProfile.php' method='POST' class="formProva">
+                        <button id="bottoncino" type="submit" name="EM" value=" <?php echo $COLONNA["Email"] ?> " href="pages/profile/otherUserProfile.php">by <?php echo $COLONNA['Name'] ?></button>
                         </form>
+
                           <form action='pages/offer/Offer.php' method='POST' class="formProva">
                             
                             <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
@@ -100,20 +102,21 @@
                     if($_SESSION['email'] != $COLONNA['Email'] && $COLONNA['StatoOggetto'] == 0){
 
                 ?> 
-                    <div class="col-lg-4 col-md-6 pippo">
+                    <div class="col-lg-3 col-md-6 pippo">
                       <div class="card o">
-                        <img src="<?php echo $COLONNA['Foto'] ?>" class="immagine" >
-                        <div class="card-body"> 
-                        </div>
-                        <div >
-                          <h5 class="card-title mx-2"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                          <form action="pages/profile/otherUserProfile.php" method='POST'>
-                            <button class="mx-2" id="bottoncino" type="submit" name="email" value="<?php $COLONNA['Email'] ?>">by <?php echo $COLONNA['Nome'] ?></button>
-                          </form>
-                        </div>
-                        <div class="card-footer">   
+                        <img src="<?php echo $COLONNA['Foto'] ?>" >
+                          <div class="card-body">
+                            <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
+                          </div>
+                        <div class="card-footer">
+
+                        <form action='pages/profile/otherUserProfile.php' method='POST' class="formProva">
+                        <button id="bottoncino" type="submit" name="EM" value=" <?php echo $COLONNA["Email"] ?> " href="pages/profile/otherUserProfile.php">by <?php echo $COLONNA['Nome'] ?></button>
+                        </form>
+
                           <form action='pages/offer/Offer.php' method='POST' class="formProva">
-                            <button style="border-width:1px;border-color:grey"class="m-auto fs-6" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?>">Offerta</button>
+                            
+                            <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/offer/Offer.php">Offerta</button>
                           </form>
                         </div>
                       </div>

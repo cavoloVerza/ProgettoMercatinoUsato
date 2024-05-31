@@ -42,7 +42,7 @@
             </ul>
            
             <div class="p1">
-               <a href="profile.php"<p class="prof">Account</p></i></a>
+               <a href="profile.php" class="prof"><p>Account</p></a>
             </div>
             <div class="me-2">
               <a href="profile.php" class="iconaprof"><i class="bi bi-person-circle" ></i></a>
@@ -55,42 +55,28 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" id="rowina">
 
       <?php
-
-        $email = $_POST['email'];
-
-        $sql = "SELECT IDogg, NomeOggetto, Foto, Descrizione, Nome, Email, utente.Password, utente.ID FROM oggetto JOIN utente ON oggetto.IdUtente = utente.ID";   
-        $result = $conn->query($sql);
         
-        if ($result->num_rows > 0) {
-          while($COLONNA = $result->fetch_assoc()) {
-            if($email == $COLONNA['Email']){
-      ?>
+        $email = $_POST['EM'];
+        echo $email;
+        $sql2 = "SELECT * FROM utente WHERE Email = '$email'";   
+        $result2 = $conn->query($sql2);
+        
+        echo "<div class='col-lg-12 col-md-12 text-center'>";
 
-              <div class="col-lg-3 col-md-6 pippo">
-                  <div class="card o">
-                    <img src="../../<?php echo $COLONNA['Foto'] ?>" >
-                      <div class="card-body">
-                        <h5 class="card-title"><?php echo $COLONNA['NomeOggetto'] ?></h5>
-                        <p class="card-text"><?php echo $COLONNA['Descrizione'] ?></p>
-                      </div>
-                      
-                    <div class="card-footer">
-                      
-                        <form action='Offer.php' method='POST' class="formProva">
-                        <span class="text-body-secondary spn">by <?php echo $COLONNA['Nome'] ?></span>
-                        <button id="bottoncino" type='submit' name='idogg' value=" <?php echo $COLONNA['ID'] . "," . $COLONNA['IDogg'] ?> " href="pages/Offer.php#content">Offerta</button>
-                      </form> 
-                    </div>
-                  </div>
-                </div>
+        while($row = $result2->fetch_assoc()){
+          
+            foreach ($row as $chiave => $value) {
+                echo "<p>" . $chiave . ": ";
+                echo $value  . "</p>";
+                }
+            
+            
 
-      <?php
-            }                          
-          }
+          echo "<p>";
         }
-        else {
-          echo "0 results";
-        }
+        echo "</div>";
+        
+        
                   
       ?>
                         </div>
